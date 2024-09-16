@@ -5,6 +5,7 @@ interface AlertProps {
 }
 
 export default function Alert({ title, bgColor, children }: AlertProps) {
+
   return (
     <div id="alert" className={`min-h-screen flex items-center justify-center flex-col fixed top-0 left-0 w-screen bg-${bgColor} backdrop-blur`}>
       <h1 className="text-7xl text-mainOrange font-pricedown">{title}</h1>

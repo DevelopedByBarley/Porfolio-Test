@@ -63,8 +63,6 @@ export default function Welcome() {
 		console.log("Sound checkbox:", soundCheckbox);
 	}
 
-	if (cookies.visited) return null; // Ha visited akkor nem látszódhat sem a welcome sem az animáció
-
 	if (cookies.intro) {
 		return <Intro />
 	}

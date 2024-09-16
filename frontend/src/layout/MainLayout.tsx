@@ -4,9 +4,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "../components/Navbar";
 import Welcome from "../pages/Welcome";
 import Footer from "../components/Footer";
+import { useCookies } from "react-cookie";
 
 const MainLayout = () => {
-
+  const [cookies] = useCookies(['visited'])
 
 
 
@@ -22,15 +23,13 @@ const MainLayout = () => {
         pauseOnHover
       />
 
-
-
-      <Welcome />
-
-      <main>
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </main>
+      {cookies.visited ? (
+        <main>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </main>
+      ) : <Welcome />}
 
     </>
   )

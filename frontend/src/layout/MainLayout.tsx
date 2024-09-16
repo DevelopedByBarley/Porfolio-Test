@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "../components/Navbar";
-import { Animation } from "../components/Intro";
 import Welcome from "../pages/Welcome";
+import Footer from "../components/Footer";
 
 const MainLayout = () => {
 
@@ -29,6 +29,7 @@ const MainLayout = () => {
       <main>
         <Navbar />
         <Outlet />
+        <Footer />
       </main>
 
     </>

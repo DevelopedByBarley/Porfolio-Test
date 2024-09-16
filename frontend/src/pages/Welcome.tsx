@@ -3,6 +3,7 @@ import Alert from "../components/Alert";
 import { playOrStopSelectSound, playOrStopThemeSound } from '../helpers/PlayAudio';
 import { useCookies } from "react-cookie";
 import { Intro } from "../components/Intro";
+import { toast } from "react-toastify";
 
 
 export default function Welcome() {
@@ -19,14 +20,13 @@ export default function Welcome() {
 
 
 	const submitOptionsAndSetCookies = (e: React.FormEvent<HTMLFormElement>) => {
-
 		e.preventDefault();
 
 		console.log("Intro:", introCheckbox);
 		console.log("Sound:", soundCheckbox);
 
-		setCookies('sound', soundCheckbox ? 1 : 0);
-		setCookies('intro', introCheckbox ? 1 : 0);
+		setCookies('sound', soundCheckbox ? 1 : 0, { path: '/', expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) });
+		setCookies('intro', introCheckbox ? 1 : 0, { path: '/', expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) });
 
 		if (soundCheckbox) {
 			playOrStopSelectSound('play');
@@ -43,6 +43,9 @@ export default function Welcome() {
 		if (introCheckbox && soundCheckbox) {
 			playOrStopThemeSound('play');
 		}
+
+
+		toast.dark('Beállítások elvogadva..')
 
 	}
 
